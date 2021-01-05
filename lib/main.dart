@@ -1,28 +1,23 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_lojavirtual/screens/base/base_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final Future<FirebaseApp> _init = Firebase.initializeApp();
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _init,
-      builder: (ctx, appSnapshot) {
-        return MaterialApp(
-          title: 'Loja Virtual',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-          ),
-          home: Container(),
-        );
-      },
+    return MaterialApp(
+      title: 'Loja Virtual',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: const Color.fromARGB(255, 4, 125, 141),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 4, 125, 141),
+        appBarTheme: const AppBarTheme(elevation: 0),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: BaseScreen(),
     );
   }
 }
